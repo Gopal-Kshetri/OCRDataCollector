@@ -5,7 +5,7 @@ import axios from "axios";
 import { BsImage } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
 import { Button } from "@mui/material";
-
+import ImageModal from "./ImageModal";
 const UploadForm = (props) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [icon, setIcon] = useState(true);
@@ -43,48 +43,48 @@ const UploadForm = (props) => {
       });
   };
   return (
-    <div className="box">
-      <input
-        style={{ display: "none" }}
-        type="file"
-        onChange={selectFile}
-        ref={fileRef}
-      ></input>
-      {icon && (
-        <div
-          className="image"
-          onClick={() => {
-            fileRef.current.click();
-          }}
-        >
-          <BsImage size="3em" />
-        </div>
-      )}
-      <div>
-        {!icon && <img className="preview" src={src} alt={alt} />}
-
-        {!icon && (
-          <>
-            <AiFillDelete
-              className="delete-btn"
-              onClick={() => {
-                setIcon(true);
-              }}
-            />
-          </>
-        )}
-
-        {!icon && (
-          <Button
-            variant="outlined"
-            onClick={uploadHandler}
-            className="btn-submit"
+    <>
+      <div className="box">
+        <input
+          style={{ display: "none" }}
+          type="file"
+          onChange={selectFile}
+          ref={fileRef}
+        ></input>
+        {icon && (
+          <div
+            className="image"
+            onClick={() => {
+              fileRef.current.click();
+            }}
           >
-            Submit
-          </Button>
+            <BsImage size="3em" />
+          </div>
         )}
+        <div>
+          {!icon && (
+            <div>
+              <AiFillDelete
+                className="delete-btn"
+                onClick={() => {
+                  setIcon(true);
+                }}
+              />
+              <ImageModal src={src} alt={alt} />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+      {!icon && (
+        <Button
+          variant="outlined"
+          onClick={uploadHandler}
+          className="btn-submit"
+        >
+          Submit
+        </Button>
+      )}
+    </>
   );
 };
 

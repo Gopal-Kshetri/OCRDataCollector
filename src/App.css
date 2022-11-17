@@ -1,8 +1,11 @@
 .bt-1 {
   margin-top: 7rem;
 }
-
+p {
+  white-space: pre-wrap;
+}
 .navdiv {
+  font-family: "Roboto", sans-serif;
   width: 100%;
   height: 5rem;
   background-color: #022c43;
@@ -48,9 +51,9 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  /* /* width: 500px; */
-  height: 900px;
-  background: #f1f1f1;
+  width: 99vw;
+  height: 100vh;
+  background: #020307;
   margin: 0px auto 0;
   word-break: break-all;
   border: 1px solid rgba(0, 0, 0, 0.274);
@@ -60,6 +63,9 @@
   display: flex;
 }
 .tabs {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: #66fcf1;
   padding: 15px;
   text-align: center;
   width: 50%;
@@ -75,7 +81,7 @@
 }
 
 .active-tabs {
-  background: #e0e9f5;
+  background: #020307;
   border-bottom: 1px solid transparent;
 }
 
@@ -88,17 +94,24 @@
   transform: translateX(-50%);
   width: calc(100% + 2px);
   height: 5px;
-  background: rgb(88, 147, 241);
+  background: #adefd1ff;
 }
 
 button {
   border: none;
 }
+
+button:hover {
+  /* background-color: #0d2120; */
+  /* box-shadow: 0px 5px 10px rgba(46, 229, 157, 0.4); */
+  color: #fff;
+  transform: translateY(-5px);
+}
 .content-tabs {
   flex-grow: 1;
 }
 .content {
-  background: #e0e9f5;
+  background: #020307;
   padding: 20px;
   width: 100%;
   height: 100%;
@@ -125,99 +138,143 @@ button {
   background-color: #e0e9f5;
 }
 
-.textlabel {
-  margin-top: 50px;
-}
-
-.box {
-  box-sizing: border-box;
-
-  position: absolute;
-  width: 1600px;
-  height: 142px;
-  left: 80px;
-  top: 350px;
-
-  background: #d9d9d9;
-  border: 1px dashed #000000;
-  border-radius: 20px;
-}
-
 /* Hero */
 .main {
   box-sizing: border-box;
+  display: block;
+  margin: auto;
+  position: relative;
+  /* align-items: center; */
+  width: 80%;
+  height: 85vh;
 
-  position: absolute;
-  width: 1800px;
-  height: 719px;
-  left: 49px;
-  top: 47px;
-  right: 49px;
-
-  background: rgba(83, 54, 80, 0.28);
-  border: 1px solid #000000;
+  /* background: white; */
+  border: 1px solid #66fcf1;
+  border-radius: 10px;
 }
 
 .ninput {
-  margin-top: 20px;
-  width: 300px;
+  margin: auto;
+  margin-right: 2%;
+  width: 20%;
+  background: white;
+
+
+}
+.lines {
+    display: block;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    padding-top: 2%;
 }
 
 .image {
-  position: absolute;
-  width: 61px;
-  height: 61px;
-  left: 750px;
-  top: 40px;
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
   cursor: pointer;
+  color: rgb(220, 217, 217);
+}
+
+.image:hover{
+  transform: translatey(-5px);
+    color: #66fcf1;
+}
+
+.btn-clear {
+  position: relative;
+  float: right;
+  right: -3%;
+  top: 2%
 }
 
 .btn-submit {
-  position: absolute;
-  left: 700px;
-  top: 100px;
+  position: relative;
+  float: right;
+  right: 10%;
+  top: 1.5%
 }
 
-.preview {
-  box-sizing: border-box;
-  width: 1610px;
-  height: 140px;
-  left: 80px;
-  top: 350px;
-  border-radius: 20px;
+.btn-generate {
+  border: 2px solid #66fcf1;
+  font-size: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #c5c6c7;
+}
+
+.btn-generate:hover {
+  transform: none;
 }
 
 .delete-btn {
-  position: absolute;
-  width: 40px;
-  height: 30px;
-  left: 1560px;
-  top: 0px;
+  position: relative;
+  display: inline;
+  top:0.5rem;
+  float: right;
+  right: 1%;
   cursor: pointer;
+  color: rgb(220, 217, 217);
+  font-size: 1.75rem;
 }
 
-.textlabel {
-  box-sizing: border-box;
+.preview {
+  display: block;
+  margin: auto;
 
-  position: absolute;
-  width: 1600px;
-  height: 142px;
-  left: 80px;
-  top: 70px;
-
-  background: #d9d9d9;
-  border: 1px dashed #000000;
+  height: 10%;
+  width: 50%;
+  /* justify-content: baseline; */
   border-radius: 20px;
 }
 
-.frame {
+.box {
+  display: block;
+  margin: auto;
   box-sizing: border-box;
-  position: absolute;
-  width: 1404px;
-  height: 49px;
-  left: 80px;
-  top: 128px;
-  border: 1px dashed #000000;
-  justify-content: center;
-  align-items: center;
+
+  margin-top: 5%;
+  width: 80%;
+  overflow-y: auto;
+  text-align: center;
+  height: 25%;
+
+
+  text-align: center;
+  background: #0b0c10;
+  border-radius: 7px;
+  border-style: solid;
+  transition: all 0.2s ease;
+  border-color: white;
+}
+
+.expand-icon {
+  position: relative;
+  display: block;
+  color: white;
+  cursor: pointer;
+  float: right;
+  margin-right: 11%;
+  top:-20vh;
+  color: rgb(220, 217, 217);
+}
+
+.expand-icon:hover{
+  transform: translateY(-2px);
+  color: #66fcf1;
+}
+.photo{
+  display: block;
+  margin: auto;
+
+  height: 10%;
+  width: 40%;
+
+}
+
+.textfield input{
+  height: 25%;
+}
+.imageSection img{
+  color: #ffffff;
 }

@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
-
+import LineText from "./LineText";
 import Ninput from "./Ninput";
 import UploadForm from "./UploadForm";
+import { Button } from "@mui/material";
+import Modal from "./Modal";
+// import { padding } from "@mui/system";
 
 const TextGenerator = (props) => {
   const [isShown, setIsShown] = useState(false);
@@ -18,7 +21,11 @@ const TextGenerator = (props) => {
 
   const makeASentence = (arr, n) => {
     let str = "";
-    for (let i = 0; i < n; i++) {
+    const par_length = n * 6;
+    for (let i = 0; i < par_length; i++) {
+      if (i % 6 === 0) {
+        str = str + "\n";
+      }
       str = str + " " + get_random(arr);
     }
 
@@ -34,25 +41,37 @@ const TextGenerator = (props) => {
   return (
     <>
       <div className="main">
-        <Ninput getNumber={getNumber} />
-        <button onClick={onSubmit}>Click here to generate random texts</button>
+        <div className="lines">
+          <Ninput getNumber={getNumber} />
+          <div/>
+          <Button
+            variant="outlined"
+            className="btn-generate"
+            onClick={onSubmit}
+          >
+            Generate
+          </Button>
+        </div>
         {isShown && (
           <>
-            <div className="textlabel">
-              {<p>{text}</p>}
-              <button
-                onClick={() => {
-                  setText("");
-                }}
-              >
-                Clear
-              </button>
+            <div className="box">
+              <LineText text={text} />
             </div>
+            {<Modal className="expand" text={text} />}
+            <Button
+              variant="outlined"
+              className="btn-clear"
+              onClick={() => {
+                setIsShown(false);
+              }}
+            >
+              Clear
+            </Button>
           </>
         )}
         {isShown && (
           <>
-            <UploadForm />
+            <UploadForm />           
           </>
         )}
       </div>
