@@ -7,7 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+.dockerignore
+docker-compose.yml
+Dockerfile
+bin/
+bin/*
 build/
+media/
+media/*
+
 
 node_modules
 dist
